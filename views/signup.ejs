@@ -1,0 +1,58 @@
+<% include partials/header %>
+
+<div class="row">
+  <div class="col-md-2">
+
+  </div>
+  <div class="col-md-8">
+    <form class="" action="/signup" method="post">
+      <label for="username">username
+        <input type="text" name="username" value="<%= username %>" placeholder="Username">
+      </label>
+      <label for="password">Password
+        <input type="text" name="password" value="<%= password %>" placeholder="password">
+      </label>
+      <label for="email">Email
+        <input type="text" name="email" value="<%= email %>" placeholder="email">
+      </label>
+      <label for="first_name">First Name
+        <input type="text" name="first_name" value="<%= first_name %>" placeholder="First Name">
+      </label>
+      <label for="last_name">Last Name
+        <input type="text" name="last_name" value="<%= last_name %>" placeholder="Last Name">
+      </label>
+      <label for="phone">Phone Number
+        <input type="text" name="phone" value="<%= phone %>" placeholder="Phone Number">
+      </label>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+
+
+    <% if(hasError) { %>
+      <div class="row">
+        <div class="col-md-6 errorBlock">
+          <% for(var item in error) { %>
+            <strong><h6><%= item %></h6></strong>
+            <ul>
+            <% for(var i = 0; i < error[item].length; i++) { %>
+                <li>
+                  <i>
+                    <%= error[item][i].message %>
+                  </i>
+                </li>
+            <% } %>
+            </ul>
+          <% } %>
+        </div>
+      </div>
+    <% } %>
+
+  </div>
+  <div class="col-md-2">
+
+  </div>
+</div>
+
+
+
+<% include partials/footer %>
